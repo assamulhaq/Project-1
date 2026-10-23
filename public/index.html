@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KisanLens AI — Smart Crop Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Top Header Bar -->
+        <div class="top-bar">
+            <span class="logo-text">🌱 KisanLens AI</span>
+        </div>
+
+        <!-- VIEW 1: Instructions / Home Screen -->
+        <div id="homeView" class="view">
+            <div class="hero-box">
+                <h1>KisanLens AI — Smart Crop Assistant</h1>
+                <p>Simple steps for farmers to check crop health instantly using AI.</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-num">1</div>
+                    <h3>Take a Photo</h3>
+                    <p>Take a clear picture of the affected crop leaf using your mobile camera.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">2</div>
+                    <h3>Select Crop</h3>
+                    <p>Choose your crop type (Cotton, Wheat, Rice, etc.) and list symptoms if any.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">3</div>
+                    <h3>Get AI Report</h3>
+                    <p>Get instant advice on possible causes, treatments, and field management steps.</p>
+                </div>
+            </div>
+
+            <button id="startScanBtn" class="primary-btn">Start Crop Scan</button>
+        </div>
+
+        <!-- VIEW 2: Scanner & Upload Form -->
+        <div id="scannerView" class="view hidden">
+            <button id="backHomeBtn" class="back-link">← Back to Instructions</button>
+            
+            <header>
+                <h2>Upload Crop Leaf Photo</h2>
+                <p>Our AI will analyze the leaf condition instantly.</p>
+            </header>
+
+            <form id="uploadForm">
+                <div class="form-group">
+                    <label for="cropImage">Upload Crop Leaf Photo:</label>
+                    <input type="file" id="cropImage" name="cropImage" accept="image/*" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cropType">Select Crop Type:</label>
+                    <select id="cropType" name="cropType">
+                        <option value="Cotton">Cotton</option>
+                        <option value="Wheat">Wheat</option>
+                        <option value="Rice">Rice</option>
+                        <option value="Sugarcane">Sugarcane</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="symptoms">Observed Symptoms (Optional):</label>
+                    <input type="text" id="symptoms" name="symptoms" placeholder="e.g., yellow spots, black powdery leaves">
+                </div>
+
+                <button type="submit" id="submitBtn" class="primary-btn">Analyze Crop</button>
+            </form>
+
+            <div id="loading" class="hidden">
+                <div class="spinner"></div>
+                <p>Analyzing crop health with AI...</p>
+            </div>
+
+            <div id="resultContainer" class="hidden">
+                <h2>Field Analysis Report</h2>
+                <div id="resultContent"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
